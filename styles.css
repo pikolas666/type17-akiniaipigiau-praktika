@@ -1,0 +1,97 @@
+body{
+    margin:0
+}
+header{
+    
+    height: 90px;
+    background-color: rgba(212, 212, 147, 0.9);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}
+.nav{
+    all: unset;
+    list-style: none;
+    display: flex;
+    width: 30%;
+    justify-content:space-evenly;
+
+}
+a{
+    all: unset;
+    cursor: pointer;
+}
+.card-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding:1rem;
+   
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width:250px;
+    background-color: rgb(253, 253, 253);
+    padding: 1rem;
+    justify-content: space-between;
+    border: lightgrey 1px solid;
+    border-radius: 1rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width:30%;
+    margin:auto;
+    margin-top: 2rem;
+    align-items: center;
+}
+.input{
+    padding:5px;
+    width: 100%;
+}
+#addBtn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(182, 223, 176);
+    color: aliceblue;
+    cursor: pointer;
+}
+h1{
+    font-size: 20px;
+    text-align: center;
+ 
+}
+p{
+    text-align: center;
+    font-weight: 600;
+    
+}
+p::after{
+    content: " eur";
+}
+
+img{
+    /* height: 100px; */
+    width:100%;
+    /* object-fit: cover; */
+
+}
+.message{
+    text-align: center;
+    margin: auto;
+    margin-top: 2rem;
+    font-size: 25px;
+
+}
