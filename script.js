@@ -1,37 +1,17 @@
-const cardWrapper = document.querySelector('.card-wrapper')
-
-const addGlasses = ()=>{
-
-    const glassesCard = {
-        title: "Men`s Cavalli sunglasses",
-        photo: "https://i.ebayimg.com/images/g/aDkAAOSwhrRfuIC~/s-l1600.jpg",
-        price: 205,
-        id: "5"
-          }
-
-
-    fetch('https://64e32ae8bac46e480e784cbb.mockapi.io/glassesCard', {
-        method: 'POST',
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(glassesCard)
-    }).then((response)=>{
-        return response.json();
-    }).then((data)=>{
-        console.log(data);
-    })
-
-}
+const cardWrapper = document.querySelector('.card-wrapper');
 
 
 const getData = async ()=> {
 const data = await fetch("https://64e32ae8bac46e480e784cbb.mockapi.io/glassesCard");
 const dataArray = await data.json();
 dataArray.forEach(element => {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.setAttribute('class', 'card');
+    card.href = "./card.html";
+    card.addEventListener('click',()=>{
+        localStorage.setItem('card', element.id)
+        console.log(element.id);
+    })
 
     const title = document.createElement('h1');
     title.innerHTML = element.title;
@@ -56,4 +36,6 @@ dataArray.forEach(element => {
 
 
 getData()
+
+
 

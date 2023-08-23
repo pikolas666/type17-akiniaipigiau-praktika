@@ -33,6 +33,7 @@ a{
     gap: 2rem;
     margin-top: 2rem;
     padding:1rem;
+    justify-items: center;
    
 }
 .card{
@@ -94,4 +95,36 @@ img{
     margin-top: 2rem;
     font-size: 25px;
 
+}
+.card-description{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:2rem;
+    margin-top: 2rem;
+    height:20rem;
+}
+.image-wrapper{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.deleteBtn{
+    height: 40px;
+    width: 100px;
+    background-color: red;
+    color:aliceblue;
+    font-weight: 600;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+   
+}
+.deleteBtn:hover{
+    background-color: rgb(199, 4, 4);
 }
