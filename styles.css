@@ -28,6 +28,8 @@ a{
     cursor: pointer;
 }
 .card-wrapper{
+    width:60%;
+    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
@@ -39,8 +41,6 @@ a{
 .card{
     display: flex;
     flex-direction: column;
-    height: 300px;
-    width:250px;
     background-color: rgb(253, 253, 253);
     padding: 1rem;
     justify-content: space-between;

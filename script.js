@@ -1,41 +1,42 @@
 const cardWrapper = document.querySelector('.card-wrapper');
+const glassesURL = "https://64e32ae8bac46e480e784cbb.mockapi.io/glassesCard";
 
-
-const getData = async ()=> {
-const data = await fetch("https://64e32ae8bac46e480e784cbb.mockapi.io/glassesCard");
-const dataArray = await data.json();
-dataArray.forEach(element => {
-    const card = document.createElement('a');
-    card.setAttribute('class', 'card');
-    card.href = "./card.html";
-    card.addEventListener('click',()=>{
-        localStorage.setItem('card', element.id)
-        console.log(element.id);
-    })
-
-    const title = document.createElement('h1');
-    title.innerHTML = element.title;
-
-    const price = document.createElement('p');
-    price.innerHTML = element.price;
-    
-    const image = document.createElement('img');
-    image.setAttribute('class', 'glasses-image');
-    image.src = element.photo;
-
-    card.append(title);
-    card.append(image);
-    card.append(price);
-
-    cardWrapper.append(card)
-
-
-});
-
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    const dataArray = await response.json();
+    return dataArray;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
 }
 
+function createCard(element) {
+  const card = document.createElement('a');
+  card.setAttribute('class', 'card');
+  card.href = "./card.html";
+  card.addEventListener('click', () => {
+    localStorage.setItem('card', element.id);
+    console.log(element.id);
+  });
 
-getData()
+  card.innerHTML = `
+    <h1>${element.title}</h1>
+    <img class="glasses-image" src="${element.photo}" alt="${element.title}">
+    <p>${element.price}</p>
+  `;
 
+  return card;
+}
 
+async function displayCards() {
+  const dataArray = await fetchData(glassesURL);
+  
+  dataArray.sort((a, b)=> a.title > b.title ? 1:-1).forEach((element) => {
+    const card = createCard(element);
+    cardWrapper.appendChild(card);
+  });
+}
 
+displayCards();
